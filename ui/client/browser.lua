@@ -1,7 +1,7 @@
 local screenWidth, screenHeight = guiGetScreenSize()
 local browserStack = {}
 
-addEvent("onClientClickTheButtonX", false)
+addEvent("onClientClickTheButtonX", true)
 addEventHandler("onClientClickTheButtonX", root,
     function()
         outputChatBox("You clicked the button!")
