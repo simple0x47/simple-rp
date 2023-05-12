@@ -13,7 +13,5 @@ function getWebBrowser()
 end
 
 function renderWebBrowser()
-    for i = 1, #browserStack do
-        dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
-    end
+    dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
 end
