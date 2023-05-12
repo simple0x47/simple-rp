@@ -17,7 +17,7 @@ function pushBrowser(url)
         addEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
-    return true
+    return browser
 end
 
 local function popBrowser()
