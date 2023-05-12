@@ -1,8 +1,10 @@
 function onStart()
-    local browser = createBrowser(640, 480, true, false)
+    local width, height = guiGetScreenSize()
+    local browser = createBrowser(width, height, true, false)
 
     addEventHandler("onClientBrowserCreated", browser, function()
         loadBrowserURL(source, "http://mta/local/client/index.html")
+        outputChatBox("Loaded URL")
     end)
 
     outputChatBox("Browser created")
