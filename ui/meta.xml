@@ -2,4 +2,6 @@
     <info author="simple0x47" version="0.0.1" name="ui" description="User interface based on Apple's design guidelines implemented through DxDraw functions."/>
 
     <script src="client/browser.lua" type="client"/>
+
+    <file src="client/index.html" type="client"/>
 </meta>
