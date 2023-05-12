@@ -2,7 +2,7 @@ local screenWidth, screenHeight = guiGetScreenSize()
 local browserStack = {}
 
 function pushBrowser(url)
-    local browser = createBrowser(screenWidth, screenHeight, true, true)
+    local browser = guiCreateBrowser(screenWidth, screenHeight, true, true, false, nil)
 
     addEventHandler("onClientBrowserCreated", browser, 
         function()
