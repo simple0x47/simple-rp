@@ -6,5 +6,6 @@
     <file src="client/index.html" type="client"/>
     <file src="client/bootstrap.bundle.min.js" type="client"/>
     <file src="client/bootstrap.min.css" type="client"/>
+    <file src="client/bootstrap-icons.css" type="client"/>
     <file src="client/transparent.css" type="client"/>
 </meta>
