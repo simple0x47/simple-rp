@@ -8,7 +8,7 @@ end)
 
 function webBrowserRender()
     --Render the browser on the full size of the screen.
-    dxDrawImage(0, 0, screenWidth, screenHeight, webBrowser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
+    dxDrawImage(0, 0, width, height, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
 end
 
 --The event onClientBrowserCreated will be triggered, after the browser has been initialized.
