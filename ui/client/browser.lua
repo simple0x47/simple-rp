@@ -1,35 +1,41 @@
 local screenWidth, screenHeight = guiGetScreenSize()
 local browserStack = {}
 
-function pushBrowser()
+function pushBrowser(url)
     local browser = createBrowser(screenWidth, screenHeight, true, true)
+
+    addEventHandler("onClientBrowserCreated", browser, 
+        function()
+            loadBrowserURL(source, url)
+        end)
 
     if #browserStack == 1 then
         addEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
     browserStack[#browserStack + 1] = browser
-    return browser
+    return true
 end
 
 function popBrowser()
     if #browserStack == 0 then
-        return nil
+        return false
     end
 
     local browser = browserStack[#browserStack]
     browserStack[#browserStack] = nil
+    destroyElement(browser)
 
     if #browserStack == 0 then
         removeEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
-    return browser
+    return true
 end
 
 function removeBrowser(browser)
     if browser == nil then
-        return nil
+        return false
     end
 
     for i = 1, #browserStack do
@@ -39,7 +45,7 @@ function removeBrowser(browser)
         end
     end
 
-    return nil
+    return false
 end
 
 function renderWebBrowsers()
