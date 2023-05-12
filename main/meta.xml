@@ -1,0 +1,7 @@
+<meta>
+    <info author="simple0x47" version="0.0.1" name="main" description="Entry point into the server."/>
+
+    <script src="client/main.lua" type="client"/>
+
+    <include resource="ui"/>
+</meta>

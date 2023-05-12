@@ -1,0 +1,1 @@
+exports.ui:pushBrowser("http://mta/local/client/index.html")
