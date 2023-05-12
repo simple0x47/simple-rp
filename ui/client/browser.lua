@@ -6,14 +6,14 @@ function pushBrowser(url)
 
     addEventHandler("onClientBrowserCreated", browser, 
         function()
-            outputChatBox("Loading url: " .. url)
+            outputDebugString("[UI] loading url: " .. url, 3)
             loadBrowserURL(source, url)
         end)
 
     browserStack[#browserStack + 1] = browser
 
     if #browserStack == 1 then
-        outputChatBox("Adding render handler")
+        outputDebugString("[UI] adding render handler", 3)
         addEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
@@ -30,7 +30,7 @@ function popBrowser()
     destroyElement(browser)
 
     if #browserStack == 0 then
-        outputChatBox("Removing render handler")
+        outputDebugString("[UI] removing render handler", 3)
         removeEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
@@ -55,7 +55,6 @@ end
 function renderWebBrowsers()
     for i = 1, #browserStack do
         local browser = browserStack[i]
-        outputChatBox("Rendering browser: " .. tostring(browser))
         dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
     end
 end
