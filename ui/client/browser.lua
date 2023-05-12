@@ -1,5 +1,5 @@
 local width, height = guiGetScreenSize()
-local browser = createBrowser(width, height, true, false)
+local browser = createBrowser(width, height, true, true)
 
 function webBrowserRender()
     --Render the browser on the full size of the screen.
