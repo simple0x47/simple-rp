@@ -1,7 +1,10 @@
 function onStart()
     local browser = createBrowser(640, 480, true)
 
-    browser.loadURL("http://mta/local/client/index.html")
+    addEventHandler("onClientBrowserCreated", browser, function()
+        loadBrowserURL(browser, "http://mta/local/client/index.html")
+    end)
+
     outputChatBox("Browser created")
 end
 
