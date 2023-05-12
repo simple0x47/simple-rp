@@ -1,6 +1,6 @@
 addEventHandler("onClientResourceStart", resourceRoot,
     function()
-        local browser = exports.ui:pushBrowser("http://mta/main/client/files/index.html")
+        local browser = exports.ui:getWebBrowser()
 
-        showCursor(true)
+        executeBrowserJavascript(browser, "document.getElementById('body').innerHtml='<h1>Hello</h1><button>Whatsup</button>'")
     end)

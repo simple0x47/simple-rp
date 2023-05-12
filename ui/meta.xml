@@ -7,7 +7,7 @@
     <file src="client/files/bootstrap.min.css" type="client"/>
     <file src="client/files/bootstrap-icons.css" type="client"/>
     <file src="client/files/transparent.css" type="client"/>
+    <file src="client/files/index.html" type="client"/>
 
-    <export function="pushBrowser" type="client" http="false"/>
-    <export function="removeBrowser" type="client" http="false"/>
+    <export function="getWebBrowser" type="client"/>
 </meta>
