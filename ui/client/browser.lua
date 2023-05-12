@@ -10,12 +10,13 @@ function pushBrowser(url)
             loadBrowserURL(source, url)
         end)
 
+    browserStack[#browserStack + 1] = browser
+
     if #browserStack == 1 then
         outputChatBox("Adding render handler")
         addEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
-    browserStack[#browserStack + 1] = browser
     return true
 end
 
