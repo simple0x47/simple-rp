@@ -1,5 +1,6 @@
 local screenWidth, screenHeight = guiGetScreenSize()
 local browser = createBrowser(screenWidth, screenHeight, true, true)
+local isDocumentReady = false
 
 addEventHandler("onClientBrowserCreated", browser, 
         function()
@@ -10,6 +11,7 @@ addEventHandler("onClientBrowserCreated", browser,
             addEventHandler("onClientBrowserDocumentReady", source,
                 function()
                     outputDebugString("[UI] browser document ready")
+                    isDocumentReady = true
                 end)
 
             addEventHandler("onClientRender", root, renderWebBrowser)
@@ -17,6 +19,10 @@ addEventHandler("onClientBrowserCreated", browser,
 
 function getWebBrowser()
     return browser
+end
+
+function isWebBrowserDocumentReady()
+    return isDocumentReady
 end
 
 function renderWebBrowser()
