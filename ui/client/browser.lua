@@ -9,7 +9,7 @@ addEventHandler("onClientBrowserCreated", browser,
 
             addEventHandler("onClientBrowserDocumentReady", source,
                 function()
-                    executeBrowserJavascript(source, "document.getElementById('container').innerHTML='<h1>Hello</h1><button>Whatsup</button>';")
+                    outputDebugString("[UI] browser document ready")
                 end)
 
             addEventHandler("onClientRender", root, renderWebBrowser)
