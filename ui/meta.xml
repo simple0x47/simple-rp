@@ -3,11 +3,11 @@
 
     <script src="client/browser.lua" type="client"/>
 
-    <file src="client/index.html" type="client"/>
-    <file src="client/bootstrap.bundle.min.js" type="client"/>
-    <file src="client/bootstrap.min.css" type="client"/>
-    <file src="client/bootstrap-icons.css" type="client"/>
-    <file src="client/transparent.css" type="client"/>
+    <file src="client/files/index.html" type="client"/>
+    <file src="client/files/bootstrap.bundle.min.js" type="client"/>
+    <file src="client/files/bootstrap.min.css" type="client"/>
+    <file src="client/files/bootstrap-icons.css" type="client"/>
+    <file src="client/files/transparent.css" type="client"/>
 
     <export function="pushBrowser" type="client" http="false"/>
     <export function="removeBrowser" type="client" http="false"/>

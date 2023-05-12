@@ -1,4 +1,4 @@
 addEventHandler("onClientResourceStart", resourceRoot,
     function()
-        exports.ui:pushBrowser("http://mta/local/client/index.html")
+        local browser = exports.ui:pushBrowser("http://mta/local/client/files/main/index.html")
     end)
