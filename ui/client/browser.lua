@@ -6,7 +6,8 @@ addEventHandler("onClientBrowserCreated", browser,
             loadBrowserURL(source, "http://mta/local/client/files/index.html")
             outputDebugString("[UI] browser created")
             focusBrowser(source)
-            
+            executeBrowserJavascript(source, "document.getElementById('body').innerHtml='<h1>Hello</h1><button>Whatsup</button>';")
+
             addEventHandler("onClientRender", root, renderWebBrowser)
         end)
 
