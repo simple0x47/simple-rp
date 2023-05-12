@@ -2,13 +2,13 @@ local screenWidth, screenHeight = guiGetScreenSize()
 local browserStack = {}
 
 function pushBrowser(url)
-    local guiBrowser = guiCreateBrowser(screenWidth, screenHeight, true, true, false, nil)
-    local browser = guiGetBrowser(guiBrowser)
+    local browser = createBrowser(screenWidth, screenHeight, true, true)
 
     addEventHandler("onClientBrowserCreated", browser, 
         function()
             outputDebugString("[UI] loading url: " .. url, 3)
             loadBrowserURL(source, url)
+            focusBrowser(source)
         end)
 
     browserStack[#browserStack + 1] = browser
@@ -17,8 +17,6 @@ function pushBrowser(url)
         outputDebugString("[UI] adding render handler", 3)
         addEventHandler("onClientRender", root, renderWebBrowsers)
     end
-
-    focusBrowser(browser)
 
     return browser
 end
@@ -56,5 +54,8 @@ function removeBrowser(browser)
 end
 
 function renderWebBrowsers()
-    
+    for i = 1, #browserStack do
+        local browser = browserStack[i]
+        dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
+    end
 end
