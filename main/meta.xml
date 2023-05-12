@@ -3,5 +3,7 @@
 
     <script src="client/main.lua" type="client"/>
 
+    <file src="client/files/main/index.html" type="client"/>
+
     <include resource="ui"/>
 </meta>
