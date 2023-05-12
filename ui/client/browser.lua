@@ -17,6 +17,8 @@ function pushBrowser(url)
         addEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
+    focusBrowser(browser)
+
     return browser
 end
 
