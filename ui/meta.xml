@@ -10,6 +10,5 @@
     <file src="client/transparent.css" type="client"/>
 
     <export function="pushBrowser" type="client" http="false"/>
-    <export function="popBrowser" type="client" http="false"/>
     <export function="removeBrowser" type="client" http="false"/>
 </meta>

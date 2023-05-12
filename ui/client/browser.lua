@@ -20,7 +20,7 @@ function pushBrowser(url)
     return true
 end
 
-function popBrowser()
+local function popBrowser()
     if #browserStack == 0 then
         return false
     end
