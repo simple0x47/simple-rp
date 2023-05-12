@@ -11,6 +11,7 @@ function pushBrowser(url)
         end)
 
     if #browserStack == 1 then
+        outputChatBox("Adding render handler")
         addEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
@@ -28,6 +29,7 @@ function popBrowser()
     destroyElement(browser)
 
     if #browserStack == 0 then
+        outputChatBox("Removing render handler")
         removeEventHandler("onClientRender", root, renderWebBrowsers)
     end
 
