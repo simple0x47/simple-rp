@@ -6,7 +6,7 @@
     <file src="client/files/bootstrap.bundle.min.js" type="client"/>
     <file src="client/files/bootstrap.min.css" type="client"/>
     <file src="client/files/bootstrap-icons.css" type="client"/>
-    <file src="client/files/transparent.css" type="client"/>
+    <file src="client/files/custom.css" type="client"/>
     <file src="client/files/index.html" type="client"/>
 
     <export function="getWebBrowser" type="client"/>
