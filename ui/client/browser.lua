@@ -6,6 +6,7 @@ function pushBrowser(url)
 
     addEventHandler("onClientBrowserCreated", browser, 
         function()
+            outputChatBox("Loading url: " .. url)
             loadBrowserURL(source, url)
         end)
 
@@ -51,6 +52,7 @@ end
 function renderWebBrowsers()
     for i = 1, #browserStack do
         local browser = browserStack[i]
+        outputChatBox("Rendering browser: " .. tostring(browser))
         dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
     end
 end
