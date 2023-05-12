@@ -1,12 +1,6 @@
 local screenWidth, screenHeight = guiGetScreenSize()
 local browserStack = {}
 
-addEvent("onClientClickTheButtonX", true)
-addEventHandler("onClientClickTheButtonX", root,
-    function()
-        outputChatBox("You clicked the button!")
-    end)
-
 function pushBrowser(url)
     local browser = createBrowser(screenWidth, screenHeight, true, true)
 
