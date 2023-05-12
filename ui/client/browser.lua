@@ -4,7 +4,9 @@ local browser = createBrowser(screenWidth, screenHeight, true, true)
 addEventHandler("onClientBrowserCreated", browser, 
         function()
             loadBrowserURL(source, "http://mta/local/client/files/index.html")
+            outputDebugString("[UI] browser created")
             focusBrowser(source)
+            
             addEventHandler("onClientRender", root, renderWebBrowser)
         end)
 
