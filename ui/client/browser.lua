@@ -3,4 +3,4 @@ function onStart()
     outputChatBox("Browser created")
 end
 
-addEventHandler("onClientResourceStart", onStart)
+addEventHandler("onClientResourceStart", root, onStart)
