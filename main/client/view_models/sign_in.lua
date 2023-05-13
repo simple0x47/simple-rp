@@ -1,3 +1,16 @@
+--[[
+    - param: boolean - whether or not the remember me is checked
+]]
+addEvent("main:onSignInRememberMe", false)
+
+--[[
+    - username: string
+    - password: string
+]]
+addEvent("main:onSignInSubmit", false)
+
+addEvent("main:onSignInSwitchToSignUp", false)
+
 local SIGN_IN_LAYER_NAME = "main:sign_in"
 
 local function readSignInViewHtml()
@@ -23,8 +36,31 @@ function showSignIn()
     end
 
     exports.ui:createLayer(SIGN_IN_LAYER_NAME, 5, view, resourceRoot)
+
+    local browser = exports.ui:getWebBrowser()
+    
+    addEventHandler("main:onSignInRememberMe", browser, onSignInRememberMe)
+    addEventHandler("main:onSignInSubmit", browser, onSignInSubmit)
+    addEventHandler("main:onSignInSwitchToSignUp", browser, onSignInSwitchToSignUp)
 end
 
 function hideSignIn()
     exports.ui:deleteLayer(SIGN_IN_LAYER_NAME)
+
+    local browser = exports.ui:getWebBrowser()
+    removeEventHandler("main:onSignInRememberMe", browser, onSignInRememberMe)
+    removeEventHandler("main:onSignInSubmit", browser, onSignInSubmit)
+    removeEventHandler("main:onSignInSwitchToSignUp", browser, onSignInSwitchToSignUp)
+end
+
+function onSignInRememberMe(rememberMe)
+    outputDebugString("Remember me: " .. rememberMe)
+end
+
+function onSignInSubmit(username, password)
+    outputDebugString("Username: " .. username .. ", password: " .. password)
+end
+
+function onSignInSwitchToSignUp()
+    outputDebugString("Switch to sign up")
 end
