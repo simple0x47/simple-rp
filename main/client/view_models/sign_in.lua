@@ -50,6 +50,8 @@ function hideSignIn()
 end
 
 function onSignInSubmit(username, password, rememberMe)
+    rememberMe = rememberMe == 1
+
     outputDebugString("Username: " .. username .. ", password: " .. password .. ", remember me: " .. rememberMe)
 end
 
