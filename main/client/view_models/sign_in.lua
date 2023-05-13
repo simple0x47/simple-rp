@@ -45,8 +45,11 @@ function hideSignIn()
     exports.ui:deleteLayer(SIGN_IN_LAYER_NAME)
 
     local browser = exports.ui:getWebBrowser()
+    
     removeEventHandler("main:onSignInSubmit", browser, onSignInSubmit)
     removeEventHandler("main:onSignInSwitchToSignUp", browser, onSignInSwitchToSignUp)
+
+    exports.ui:setInputMode(false)
 end
 
 function onSignInSubmit(username, password, rememberMe)
