@@ -8,6 +8,17 @@
         width: 100vw;
     }
 
+    .sign-in-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: rgba(41, 41, 41, 0.75);
+        border-radius: 25px;
+        padding: 16px;
+    }
+
     .sign-in-title {
         display: flex;
         justify-content: center;
@@ -15,19 +26,13 @@
         color: #ebebeb;
         padding: 32px;
     }
-
-    .sign-in-container {
-        background-color: rgba(41, 41, 41, 0.75);
-        border-radius: 25px;
-        padding: 16px;
-    }
 </style>
 <div class="container">
-    <div class="sign-in-title">
-        <h1>simpleRP</h1>
-    </div>
-
     <div class="sign-in-container">
+        <div class="sign-in-title">
+            <h1>simpleRP</h1>
+        </div>
+
         <form class="row g-3">
             <div class="col-md-4">
                 <label for="validationDefault01" class="form-label">First name</label>
