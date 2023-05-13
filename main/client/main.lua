@@ -1,7 +1,9 @@
 function readHtml()
-    local file = fileOpen("files/index.html")
+    local file = fileOpen("client/files/index.html")
+
     if not file then
         outputDebugString("[MAIN] could not open index.html file", 2)
+        return
     end
 
     local size = fileGetSize(file)
