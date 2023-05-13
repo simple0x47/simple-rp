@@ -28,3 +28,39 @@ end
 function renderWebBrowser()
     dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
 end
+
+--[[
+    - layerName: string - unique identifier of the layer
+    - layerZIndex: int - layer z-index
+    - html: string - html content to be rendered within the layer
+    - resource: resource - element of the resource creating the layer
+]]
+function createLayer(layerName, layerZIndex, html, resource)
+    if not isWebBrowserDocumentReady() then
+        return
+    end
+
+    executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
+    local js = "document.getElementById('" .. layerName .. "').innerHTML='" .. html .. "';"
+
+    outputDebugString("[UI] createLayer: " .. js)
+    executeBrowserJavascript(browser, js)
+
+    -- delete layer when the creator resource is stopped
+    addEventHandler("onClientResourceStop", resource,
+        function()
+            deleteLayer(layerName)
+        end)
+end
+
+--[[
+    - layerName: string - unique identifier of the layer
+]]
+function deleteLayer(layerName)
+    if not isWebBrowserDocumentReady() then
+        return
+    end
+
+    outputDebugString("[UI] deleteLayer: " .. layerName)
+    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').remove();")
+end

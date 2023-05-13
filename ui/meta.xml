@@ -11,4 +11,6 @@
 
     <export function="getWebBrowser" type="client"/>
     <export function="isWebBrowserDocumentReady" type="client"/>
+    <export function="createLayer" type="client"/>
+    <export function="deleteLayer" type="client"/>
 </meta>
