@@ -35,7 +35,6 @@ function showSignIn()
 
     local browser = exports.ui:getWebBrowser()
     
-    addEventHandler("main:onSignInRememberMe", browser, onSignInRememberMe)
     addEventHandler("main:onSignInSubmit", browser, onSignInSubmit)
     addEventHandler("main:onSignInSwitchToSignUp", browser, onSignInSwitchToSignUp)
 
@@ -46,17 +45,12 @@ function hideSignIn()
     exports.ui:deleteLayer(SIGN_IN_LAYER_NAME)
 
     local browser = exports.ui:getWebBrowser()
-    removeEventHandler("main:onSignInRememberMe", browser, onSignInRememberMe)
     removeEventHandler("main:onSignInSubmit", browser, onSignInSubmit)
     removeEventHandler("main:onSignInSwitchToSignUp", browser, onSignInSwitchToSignUp)
 end
 
-function onSignInRememberMe(rememberMe)
-    outputDebugString("Remember me: " .. rememberMe)
-end
-
-function onSignInSubmit(username, password)
-    outputDebugString("Username: " .. username .. ", password: " .. password)
+function onSignInSubmit(username, password, rememberMe)
+    outputDebugString("Username: " .. username .. ", password: " .. password .. ", remember me: " .. rememberMe)
 end
 
 function onSignInSwitchToSignUp()
