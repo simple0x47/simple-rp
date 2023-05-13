@@ -65,6 +65,12 @@ end
 
 local function injectHtmlRemoval(layerName)
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').classList.remove('visible-layer');")
+
+    -- remove the layer after 500ms
+    setTimer(
+        function()
+            executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').remove();")
+        end, 500, 1)
 end
 
 --[[
