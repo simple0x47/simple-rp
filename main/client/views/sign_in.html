@@ -79,13 +79,13 @@
                     <div class="form-group mb-5">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="remember-me" name="remember-me"
-                                onclick="rememberMe();">
+                                onclick="rememberMe();" onchange="mta.triggerEvent('main:onSignInRememberMe');">
                             <label class="form-check-label" for="remember-me">
                                 Remember me
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-block login-btn" onclick="submit();">Login</button>
+                    <button type="button" class="btn btn-lg btn-block login-btn" onclick="submit();">Login</button>
                 </form>
                 <hr>
                 <p class="text-center">Don't have an account? <a href="#" onclick="signUp();">Sign Up</a></p>
