@@ -41,11 +41,9 @@ function createLayer(layerName, layerZIndex, html, resource)
     end
 
     executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
-    local js = "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;"
+    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
 
-    outputDebugString("[UI] createLayer: " .. js)
-    executeBrowserJavascript(browser, js)
-
+    outputDebugString("[UI] createLayer: " .. layerName)
     -- delete layer when the creator resource is stopped
     addEventHandler("onClientResourceStop", resource,
         function()
