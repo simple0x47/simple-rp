@@ -69,6 +69,7 @@ local function injectHtmlRemoval(layerName)
     -- remove the layer after 500ms
     setTimer(
         function()
+            outputDebugString("[UI] removing layer: " .. layerName)
             executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').remove();")
         end, 500, 1)
 end
