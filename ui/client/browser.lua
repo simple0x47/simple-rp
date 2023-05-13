@@ -29,6 +29,11 @@ function renderWebBrowser()
     dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
 end
 
+local function injectHtml(layerName, layerZIndex, html)
+    executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
+    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
+end
+
 --[[
     - layerName: string - unique identifier of the layer
     - layerZIndex: int - layer z-index
@@ -55,9 +60,8 @@ function createLayer(layerName, layerZIndex, html, resource)
     injectHtml(layerName, layerZIndex, html)
 end
 
-local function injectHtml(layerName, layerZIndex, html)
-    executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
-    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
+local function injectHtmlRemoval(layerName)
+    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').remove();")
 end
 
 --[[
@@ -76,8 +80,4 @@ function deleteLayer(layerName)
     end
 
     injectHtmlRemoval(layerName)
-end
-
-local function injectHtmlRemoval(layerName)
-    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').remove();")
 end
