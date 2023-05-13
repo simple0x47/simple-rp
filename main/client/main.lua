@@ -34,5 +34,5 @@ function injectHtmlIntoBrowser(browser)
     local html = readHtml()
     outputDebugString("[MAIN] html: " .. html)
 
-    exports.ui:createLayer("main", browser, html, resourceRoot)
+    exports.ui:createLayer("main", browser, 1, html, resourceRoot)
 end
