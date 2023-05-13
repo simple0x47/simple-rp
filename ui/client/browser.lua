@@ -1,6 +1,7 @@
 local screenWidth, screenHeight = guiGetScreenSize()
 local browser = createBrowser(screenWidth, screenHeight, true, true)
 local isDocumentReady = false
+local isInputEnabled = false
 
 function onClientBrowserCreated()
     loadBrowserURL(source, "http://mta/local/client/files/index.html")
@@ -86,12 +87,17 @@ end
     - enableInput: boolean - true to enable input, false to disable input
 ]]
 function setInputMode(enableInput)
+    if isInputEnabled == enableInput then
+        return
+    end
+
     if enableInput then
         showCursor(true)
         addEventHandler("onClientClick", root, onClientClick)
         addEventHandler("onClientCursorMove", root, onClientCursorMove)
         addEventHandler("onClientKey", root, onClientKey)
         focusBrowser(browser)
+        isInputEnabled = true
         return
     end
 
@@ -99,6 +105,7 @@ function setInputMode(enableInput)
     removeEventHandler("onClientClick", root, onClientClick)
     removeEventHandler("onClientCursorMove", root, onClientCursorMove)
     removeEventHandler("onClientKey", root, onClientKey)
+    isInputEnabled = false
 end
 
 function onClientClick(button, state)
