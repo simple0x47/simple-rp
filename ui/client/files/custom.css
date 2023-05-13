@@ -12,6 +12,16 @@ body {
     height: 100%;
 }
 
+.hidden-layer {
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.hidden-layer.visible-layer {
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
 .white {
     color: white;
 }

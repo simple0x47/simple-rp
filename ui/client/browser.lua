@@ -31,8 +31,10 @@ function renderWebBrowser()
 end
 
 local function injectHtml(layerName, layerZIndex, html)
-    executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
+    executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer hidden-layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
+
+    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').classList.add('visible-layer');")
 end
 
 --[[
@@ -62,7 +64,7 @@ function createLayer(layerName, layerZIndex, html, resource)
 end
 
 local function injectHtmlRemoval(layerName)
-    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').remove();")
+    executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').classList.remove('visible-layer');")
 end
 
 --[[
