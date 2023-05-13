@@ -1,11 +1,6 @@
 local screenWidth, screenHeight = guiGetScreenSize()
-local browser = nil
+local browser = createBrowser(screenWidth, screenHeight, true, true)
 local isDocumentReady = false
-
-function onClientResourceStart()
-    browser = createBrowser(screenWidth, screenHeight, true, true)
-end
-addEventHandler("onClientResourceStart", resourceRoot, onClientResourceStart)
 
 function onClientBrowserCreated()
     loadBrowserURL(source, "http://mta/local/client/files/index.html")
