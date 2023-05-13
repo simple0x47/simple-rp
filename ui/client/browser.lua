@@ -36,29 +36,48 @@ end
     - resource: resource - element of the resource creating the layer
 ]]
 function createLayer(layerName, layerZIndex, html, resource)
+    outputDebugString("[UI] createLayer: " .. layerName)
+
+    -- delete layer when the creator resource is stopped
+    addEventHandler("onClientResourceStop", resource,
+    function()
+        deleteLayer(layerName)
+    end)
+
     if not isWebBrowserDocumentReady() then
+        addEventHandler("onClientBrowserDocumentReady", browser,
+            function()
+                injectHtml(layerName, layerZIndex, html)
+            end)
         return
     end
 
+    injectHtml(layerName, layerZIndex, html)
+end
+
+local function injectHtml(layerName, layerZIndex, html)
     executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
-
-    outputDebugString("[UI] createLayer: " .. layerName)
-    -- delete layer when the creator resource is stopped
-    addEventHandler("onClientResourceStop", resource,
-        function()
-            deleteLayer(layerName)
-        end)
 end
 
 --[[
     - layerName: string - unique identifier of the layer
 ]]
 function deleteLayer(layerName)
+    outputDebugString("[UI] deleteLayer: " .. layerName)
+
     if not isWebBrowserDocumentReady() then
+        addEventHandler("onClientBrowserDocumentReady", browser,
+            function()
+                injectHtmlRemoval(layerName)
+            end)
+            
         return
     end
 
-    outputDebugString("[UI] deleteLayer: " .. layerName)
+    injectHtmlRemoval(layerName)
+end
+
+local function injectHtmlRemoval(layerName)
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').remove();")
 end
