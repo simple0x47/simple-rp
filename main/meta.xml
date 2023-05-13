@@ -3,6 +3,8 @@
 
     <script src="client/main.lua" type="client"/>
 
+    <!-- Sign in -->
+    <script src="client/view_models/sign_in.lua" type="client"/>
     <file src="client/views/sign_in.html" type="client"/>
 
     <include resource="ui"/>
