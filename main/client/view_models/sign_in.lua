@@ -1,11 +1,7 @@
 --[[
-    - param: boolean - whether or not the remember me is checked
-]]
-addEvent("main:onSignInRememberMe", false)
-
---[[
     - username: string
     - password: string
+    - rememberMe: boolean
 ]]
 addEvent("main:onSignInSubmit", false)
 

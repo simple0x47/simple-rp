@@ -50,7 +50,7 @@
             <div class="login-form">
                 <h2 class="form-heading">simpleRP</h2>
                 <form
-                    onsubmit="mta.triggerEvent('main:onSignInSubmit', document.getElementById('username').value, document.getElementById('password').value); return false;">
+                    onsubmit="mta.triggerEvent('main:onSignInSubmit', document.getElementById('username').value, document.getElementById('password').value, document.getElementById('remember-me').checked); return false;">
                     <div class="form-group mb-4">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -61,8 +61,7 @@
                     </div>
                     <div class="form-group mb-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="remember-me" name="remember-me"
-                                onchange="mta.triggerEvent('main:onSignInRememberMe', document.getElementById('remember-me').checked);">
+                            <input class="form-check-input" type="checkbox" id="remember-me" name="remember-me">
                             <label class="form-check-label" for="remember-me">
                                 Remember me
                             </label>
