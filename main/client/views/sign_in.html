@@ -1,51 +1,53 @@
 <style>
-    .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 100vh;
-        width: 100vw;
+    .login-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .sign-in-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        background-color: #ebebeb;
-        border-radius: 25px;
-        padding: 16px;
+    .form-control:focus {
+        border-color: #343a40;
+        box-shadow: none;
     }
 
-    .sign-in-title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #414141;
-        padding: 32px;
+    .login-btn {
+        background-color: #343a40;
+        color: #fff;
+        border: none;
+    }
+
+    .login-btn:hover {
+        background-color: #212529;
+    }
+
+    .create-account {
+        color: #343a40;
+    }
+
+    .create-account:hover {
+        color: #212529;
     }
 </style>
-<div class="container">
-    <div class="sign-in-container">
-        <div class="sign-in-title">
-            <h1>simpleRP</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="login-form">
+                <form>
+                    <h2 class="text-center mb-4">Login</h2>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn login-btn btn-block mb-4">Login</button>
+                    <p class="text-center mb-0">Don't have an account? <a href="#" class="create-account">Create one</a>
+                    </p>
+                </form>
+            </div>
         </div>
-
-        <form>
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
-                <input type="text" class="form-control" id="username">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-key"></i></span>
-                <input type="password" class="form-control" id="password">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">Remember me</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
     </div>
 </div>
