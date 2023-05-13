@@ -19,20 +19,20 @@ function onClientResourceStart()
     if not exports.ui:isWebBrowserDocumentReady() then
         addEventHandler("onClientBrowserDocumentReady", browser, function()
             outputDebugString("[MAIN] injecting html into browser on document ready")
-            injectHtmlIntoBrowser(source)
+            injectHtmlIntoBrowser()
         end)
         
         return
     end
 
     outputDebugString("[MAIN] injecting html into browser on resource start")
-    injectHtmlIntoBrowser(browser)
+    injectHtmlIntoBrowser()
 end
 addEventHandler("onClientResourceStart", resourceRoot, onClientResourceStart)
 
-function injectHtmlIntoBrowser(browser)
+function injectHtmlIntoBrowser()
     local html = readHtml()
     outputDebugString("[MAIN] html: " .. html)
 
-    exports.ui:createLayer("main", browser, 1, html, resourceRoot)
+    exports.ui:createLayer("main", 1, html, resourceRoot)
 end
