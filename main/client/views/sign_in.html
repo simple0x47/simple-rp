@@ -49,7 +49,8 @@
         <div class="col-md-8 col-lg-6">
             <div class="login-form">
                 <h2 class="form-heading">simpleRP</h2>
-                <form>
+                <form
+                    onsubmit="mta.triggerEvent('main:onSignInSubmit', document.getElementById('username').value, document.getElementById('password').value); return false;">
                     <div class="form-group mb-4">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -67,8 +68,7 @@
                             </label>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-lg btn-block login-btn"
-                        onclick="mta.triggerEvent('main:onSignInSubmit', document.getElementById('username').value, document.getElementById('password').value);">Login</button>
+                    <button type="submit" class="btn btn-lg btn-block login-btn">Login</button>
                 </form>
                 <hr>
                 <p class="text-center">Don't have an account? <a href="#"
