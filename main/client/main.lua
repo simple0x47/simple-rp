@@ -14,14 +14,16 @@ end
 function onClientResourceStart()
     local browser = exports.ui:getWebBrowser()
 
-    if not isWebBrowserDocumentReady then
+    if not exports.ui:isWebBrowserDocumentReady() then
         addEventHandler("onClientBrowserDocumentReady", browser, function()
+            outputDebugString("[MAIN] injecting html into browser on document ready")
             injectHtmlIntoBrowser(source)
         end)
         
         return
     end
 
+    outputDebugString("[MAIN] injecting html into browser on resource start")
     injectHtmlIntoBrowser(browser)
 end
 addEventHandler("onClientResourceStart", resourceRoot, onClientResourceStart)
