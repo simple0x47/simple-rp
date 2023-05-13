@@ -8,6 +8,8 @@
     <file src="client/files/bootstrap-icons.css" type="client"/>
     <file src="client/files/custom.css" type="client"/>
     <file src="client/files/index.html" type="client"/>
+    <file src="client/files/fonts/bootstrap-icons.woff" type="client"/>
+    <file src="client/files/fonts/bootstrap-icons.woff2" type="client"/>
 
     <export function="getWebBrowser" type="client"/>
     <export function="isWebBrowserDocumentReady" type="client"/>
