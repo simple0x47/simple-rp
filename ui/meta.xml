@@ -15,4 +15,5 @@
     <export function="isWebBrowserDocumentReady" type="client"/>
     <export function="createLayer" type="client"/>
     <export function="deleteLayer" type="client"/>
+    <export function="setInputMode" type="client"/>
 </meta>

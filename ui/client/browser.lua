@@ -81,3 +81,42 @@ function deleteLayer(layerName)
 
     injectHtmlRemoval(layerName)
 end
+
+--[[
+    - enableInput: boolean - true to enable input, false to disable input
+]]
+function setInputMode(enableInput)
+    if enableInput then
+        showCursor(true)
+        addEventHandler("onClientClick", root, onClientClick)
+        addEventHandler("onClientCursorMove", root, onClientCursorMove)
+        addEventHandler("onClientKey", root, onClientKey)
+        focusBrowser(browser)
+        return
+    end
+
+    showCursor(false)
+    removeEventHandler("onClientClick", root, onClientClick)
+    removeEventHandler("onClientCursorMove", root, onClientCursorMove)
+    removeEventHandler("onClientKey", root, onClientKey)
+end
+
+function onClientClick(button, state)
+    if state == "down" then
+        injectBrowserMouseDown(browser, button)
+    else
+        injectBrowserMouseUp(browser, button)
+    end
+end
+
+function onClientCursorMove(relativeX, relativeY, absoluteX, absoluteY)
+    injectBrowserMouseMove(browser, absoluteX, absoluteY)
+end
+
+function onClientKey(button)
+    if button == "mouse_wheel_down" then
+		injectBrowserMouseWheel(browser, -40, 0)
+	elseif button == "mouse_wheel_up" then
+		injectBrowserMouseWheel(browser, 40, 0)
+	end
+end
