@@ -67,7 +67,7 @@
         <div class="col-md-8 col-lg-6">
             <div class="login-form">
                 <h2 class="form-heading">simpleRP</h2>
-                <form action="" method="post">
+                <form onsubmit="submit();">
                     <div class="form-group mb-4">
                         <label for="">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -85,7 +85,7 @@
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-block login-btn" onclick="submit();">Login</button>
+                    <button type="submit" class="btn btn-lg btn-block login-btn">Login</button>
                 </form>
                 <hr>
                 <p class="text-center">Don't have an account? <a onclick="signUp();">Sign Up</a></p>
