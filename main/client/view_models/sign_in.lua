@@ -42,6 +42,8 @@ function showSignIn()
     addEventHandler("main:onSignInRememberMe", browser, onSignInRememberMe)
     addEventHandler("main:onSignInSubmit", browser, onSignInSubmit)
     addEventHandler("main:onSignInSwitchToSignUp", browser, onSignInSwitchToSignUp)
+
+    exports.ui:setInputMode(true)
 end
 
 function hideSignIn()
