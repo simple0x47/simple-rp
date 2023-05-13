@@ -32,6 +32,7 @@ addEventHandler("onClientResourceStart", resourceRoot, onClientResourceStart)
 
 function injectHtmlIntoBrowser(browser)
     local html = readHtml()
+    outputDebugString("[MAIN] html: " .. html")
 
     executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='" .. html .. "';")
 end
