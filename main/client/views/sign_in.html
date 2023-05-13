@@ -1,49 +1,64 @@
 <style>
+    body {
+        background-color: #f0f0f0;
+    }
+
     .login-form {
         background-color: #fff;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-top: 80px;
     }
 
     .form-control:focus {
-        border-color: #343a40;
+        border-color: #007aff;
         box-shadow: none;
     }
 
     .login-btn {
-        background-color: #343a40;
+        background-color: #007aff;
         color: #fff;
         border: none;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 10px 20px;
+        transition: all 0.3s ease-in-out;
     }
 
     .login-btn:hover {
-        background-color: #212529;
+        background-color: #0062cc;
     }
 
     .create-account {
-        color: #343a40;
+        color: #007aff;
     }
 
     .create-account:hover {
-        color: #212529;
+        color: #0056b3;
+    }
+
+    .login-form label {
+        font-size: 16px;
+        font-weight: 600;
     }
 </style>
-<div class="container mt-5">
+<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-8 col-lg-6">
             <div class="login-form">
+                <h1 class="text-center mb-4">Welcome back</h1>
                 <form>
-                    <h2 class="text-center mb-4">Login</h2>
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label">Username or Email</label>
                         <input type="text" class="form-control" id="username" name="username" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn login-btn btn-block mb-4">Login</button>
+                    <button type="submit" class="btn login-btn btn-block mb-4">Log in</button>
                     <p class="text-center mb-0">Don't have an account? <a href="#" class="create-account">Create one</a>
                     </p>
                 </form>
