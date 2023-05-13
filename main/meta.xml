@@ -3,7 +3,7 @@
 
     <script src="client/main.lua" type="client"/>
 
-    <file src="client/files/index.html" type="client"/>
+    <file src="client/views/sign_in.html" type="client"/>
 
     <include resource="ui"/>
 </meta>
