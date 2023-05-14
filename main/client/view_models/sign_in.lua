@@ -1,3 +1,5 @@
+local SIGN_IN_LAYER_NAME = "main:sign_in"
+
 --[[
     - username: string
     - password: string
@@ -6,8 +8,6 @@
 addEvent("main:onSignInSubmit", false)
 
 addEvent("main:onSignInSwitchToSignUp", false)
-
-local SIGN_IN_LAYER_NAME = "main:sign_in"
 
 local function readSignInViewHtml()
     local file = fileOpen("client/views/sign_in.html")
