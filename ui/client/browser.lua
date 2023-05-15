@@ -37,7 +37,12 @@ local function executeJavascriptFromHtml(html)
     local start = string.find(html, SCRIPT_TAG_START)
     local finish = string.find(html, SCRIPT_TAG_FINISH)
 
-    local script = string.sub(html, start + string.len(SCRIPT_TAG_START), finish)
+    if not start or not finish then
+        outputDebugString("Invalid javascript within html: " .. html, 2)
+        return
+    end
+
+    local script = string.sub(html, start + string.len(SCRIPT_TAG_START), finish - 1)
     
     outputDebugString("Detected javascript within html: " .. script)
     executeBrowserJavascript(browser, script)
