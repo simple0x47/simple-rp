@@ -9,6 +9,12 @@ addEvent("main:onSignInSubmit", false)
 
 addEvent("main:onSignInSwitchToSignUp", false)
 
+--[[
+    - success: boolean
+    - data: table
+]]
+addEvent("main:onSignInResult", true)
+
 local function readSignInViewHtml()
     local file = fileOpen("client/views/sign_in.html")
 
@@ -54,6 +60,24 @@ end
 
 function onSignInSubmit(username, password, rememberMe)
     rememberMe = rememberMe == 1
+
+    triggerServerEvent("main:onTrySignIn", getLocalPlayer(), username, password, rememberMe)
+
+    addEventHandler("main:onSignInResult", root, onSignInResult)
+end
+
+function onSignInResult(success, data)
+    removeEventHandler("main:onSignInResult", root, onSignInResult)
+
+    local webBrowser = exports.ui:getWebBrowser()
+
+    if not success then
+        executeBrowserJavascript(webBrowser, "signInFailure();")
+        return
+    end
+
+    executeBrowserJavascript(webBrowser, "signInSuccess();"
+    hideSignIn()
 end
 
 function onSignInSwitchToSignUp()
