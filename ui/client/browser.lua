@@ -1,3 +1,6 @@
+local SCRIPT_TAG_START = "<script>"
+local SCRIPT_TAG_FINISH = "</script>"
+
 local screenWidth, screenHeight = guiGetScreenSize()
 local browser = createBrowser(screenWidth, screenHeight, true, true)
 local isDocumentReady = false
@@ -32,10 +35,26 @@ end
 
 local function injectHtml(layerName, layerZIndex, html)
     executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer hidden-layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
+
+    -- 
+    if string.find(html, "<script>") then
+        executeJavascriptFromHtml(html)
+    end
+
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
 
     executeBrowserJavascript(browser, "replaceScriptNode(document.getElementById('" .. layerName .. "'));")
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').classList.add('visible-layer');")
+end
+
+local function executeJavascriptFromHtml(html)
+    local start = string.find(html, SCRIPT_TAG_START)
+    local finish = string.find(html, SCRIPT_TAG_FINISH)
+
+    local script = string.sub(html, start + string.len(SCRIPT_TAG_START), finish + string.len(SCRIPT_TAG_FINISH))
+    
+    outputDebugString("Detected javascript within html: " .. script)
+    executeBrowserJavascript(browser, script)
 end
 
 --[[
