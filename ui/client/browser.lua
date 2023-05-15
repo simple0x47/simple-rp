@@ -34,6 +34,7 @@ local function injectHtml(layerName, layerZIndex, html)
     executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer hidden-layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
 
+    executeBrowserJavascript(browser, "replaceScriptNode(document.getElementById('" .. layerName .. "'));")
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').classList.add('visible-layer');")
 end
 

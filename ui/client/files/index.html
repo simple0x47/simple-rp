@@ -12,6 +12,36 @@
 </head>
 
 <body id="body">
+    <script>
+        function replaceScriptNode(node) {
+            if (isScriptNode(node) === true) {
+                node.parentNode.replaceChild(cloneScriptNode(node), node);
+            }
+            else {
+                var i = -1, children = node.childNodes;
+                while (++i < children.length) {
+                    replaceScriptNode(children[i]);
+                }
+            }
+
+            return node;
+        }
+
+        function cloneScriptNode(node) {
+            var script = document.createElement("script");
+            script.text = node.innerHTML;
+
+            var i = -1, attrs = node.attributes, attr;
+            while (++i < attrs.length) {
+                script.setAttribute((attr = attrs[i]).name, attr.value);
+            }
+            return script;
+        }
+
+        function isScriptNode(node) {
+            return string.toLowerCase(node.tagName) === 'script';
+        }
+    </script>
 </body>
 
 </html>
