@@ -76,7 +76,7 @@ function onSignInResult(success, data)
         return
     end
 
-    executeBrowserJavascript(webBrowser, "signInSuccess();"
+    executeBrowserJavascript(webBrowser, "signInSuccess();")
     hideSignIn()
 end
 
