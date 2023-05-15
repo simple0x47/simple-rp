@@ -33,6 +33,16 @@ function renderWebBrowser()
     dxDrawImage(0, 0, screenWidth, screenHeight, browser, 0, 0, 0, tocolor(255, 255, 255, 255), true)
 end
 
+local function executeJavascriptFromHtml(html)
+    local start = string.find(html, SCRIPT_TAG_START)
+    local finish = string.find(html, SCRIPT_TAG_FINISH)
+
+    local script = string.sub(html, start + string.len(SCRIPT_TAG_START), finish + string.len(SCRIPT_TAG_FINISH))
+    
+    outputDebugString("Detected javascript within html: " .. script)
+    executeBrowserJavascript(browser, script)
+end
+
 local function injectHtml(layerName, layerZIndex, html)
     executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer hidden-layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
 
@@ -45,16 +55,6 @@ local function injectHtml(layerName, layerZIndex, html)
 
     executeBrowserJavascript(browser, "replaceScriptNode(document.getElementById('" .. layerName .. "'));")
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').classList.add('visible-layer');")
-end
-
-local function executeJavascriptFromHtml(html)
-    local start = string.find(html, SCRIPT_TAG_START)
-    local finish = string.find(html, SCRIPT_TAG_FINISH)
-
-    local script = string.sub(html, start + string.len(SCRIPT_TAG_START), finish + string.len(SCRIPT_TAG_FINISH))
-    
-    outputDebugString("Detected javascript within html: " .. script)
-    executeBrowserJavascript(browser, script)
 end
 
 --[[
