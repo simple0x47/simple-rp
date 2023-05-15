@@ -137,3 +137,9 @@ function onClientKey(button)
 		injectBrowserMouseWheel(browser, 40, 0)
 	end
 end
+
+addCommandHandler("devmode",
+    function()
+        setDevelopmentMode(true, true)
+    end
+)
