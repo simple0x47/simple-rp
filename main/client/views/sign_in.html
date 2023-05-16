@@ -46,29 +46,11 @@
 </style>
 <script>
     function signInSuccess() {
-        const signInNotificationToast = document.getElementById('signInNotificationToast');
-        const toast = new bootstrap.Toast(signInNotificationToast);
-
-        const signInNotificationTitle = document.getElementById('signInNotificationTitle');
-        signInNotificationTitle.innerText = "Success";
-
-        const signInNotificationMessage = document.getElementById('signInNotificationMessage');
-        signInNotificationMessage.innerText = "You have successfully signed in!";
-
-        toast.show();
+        console.log("success");
     }
 
     function signInFailure() {
-        const signInNotificationToast = document.getElementById('signInNotificationToast');
-        const toast = new bootstrap.Toast(signInNotificationToast);
-
-        const signInNotificationTitle = document.getElementById('signInNotificationTitle');
-        signInNotificationTitle.innerText = "Error";
-
-        const signInNotificationMessage = document.getElementById('signInNotificationMessage');
-        signInNotificationMessage.innerText = "Incorrect username or password!";
-
-        toast.show();
+        console.log("failure");
     }
 </script>
 <div class="container">
