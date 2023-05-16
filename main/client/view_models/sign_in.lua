@@ -67,7 +67,17 @@ function onSignInSubmit(username, password, rememberMe)
 end
 
 function onSignInResult(success, data)
-    outputDebugString("Suspicious")
+    removeEventHandler("main:onSignInResult", root, onSignInResult)
+
+    local webBrowser = exports.ui:getWebBrowser()
+
+    if not success then
+        executeBrowserJavascript(webBrowser, "signInFailure();")
+        return
+    end
+
+    executeBrowserJavascript(webBrowser, "signInSuccess();")
+    hideSignIn()
 end
 
 function onSignInSwitchToSignUp()

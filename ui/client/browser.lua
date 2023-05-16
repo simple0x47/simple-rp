@@ -51,6 +51,10 @@ end
 local function injectHtml(layerName, layerZIndex, html)
     executeBrowserJavascript(browser, "document.getElementById('body').innerHTML='<div id=\"" .. layerName .. "\" class=\"layer hidden-layer\" style=\"z-index: " .. layerZIndex .. "\"></div>';")
 
+    -- 
+    if string.find(html, "<script>") then
+        executeJavascriptFromHtml(html)
+    end
 
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
 

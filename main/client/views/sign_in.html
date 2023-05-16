@@ -44,6 +44,33 @@
         color: #ffc757;
     }
 </style>
+<script>
+    function signInSuccess() {
+        const signInNotificationToast = document.getElementById('signInNotificationToast');
+        const toast = new bootstrap.Toast(signInNotificationToast);
+
+        const signInNotificationTitle = document.getElementById('signInNotificationTitle');
+        signInNotificationTitle.innerText = "Success";
+
+        const signInNotificationMessage = document.getElementById('signInNotificationMessage');
+        signInNotificationMessage.innerText = "You have successfully signed in!";
+
+        toast.show();
+    }
+
+    function signInFailure() {
+        const signInNotificationToast = document.getElementById('signInNotificationToast');
+        const toast = new bootstrap.Toast(signInNotificationToast);
+
+        const signInNotificationTitle = document.getElementById('signInNotificationTitle');
+        signInNotificationTitle.innerText = "Error";
+
+        const signInNotificationMessage = document.getElementById('signInNotificationMessage');
+        signInNotificationMessage.innerText = "Incorrect username or password!";
+
+        toast.show();
+    }
+</script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
@@ -74,19 +101,6 @@
                         onkeydown="mta.triggerEvent('main:onSignInSwitchToSignUp');"
                         onclick="mta.triggerEvent('main:onSignInSwitchToSignUp');">Sign Up</a></p>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="signInNotificationToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong id="signInNotificationTitle" class="me-auto"></strong>
-            <small>just now</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div id="signInNotificationMessage" class="toast-body">
         </div>
     </div>
 </div>
