@@ -57,8 +57,6 @@ local function injectHtml(layerName, layerZIndex, html)
     end
 
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').innerHTML=`" .. html .. "`;")
-
-    executeBrowserJavascript(browser, "replaceScriptNode(document.getElementById('" .. layerName .. "'));")
     executeBrowserJavascript(browser, "document.getElementById('" .. layerName .. "').classList.add('visible-layer');")
 end
 
