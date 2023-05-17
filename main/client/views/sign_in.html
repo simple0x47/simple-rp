@@ -47,10 +47,19 @@
 <script>
     function signInSuccess() {
         console.log("success");
+        const invalidFeedback = document.getElementById("invalidFeedback");
+        invalidFeedback.style.opacity = "0.0";
     }
 
-    function signInFailure() {
-        console.log("failure");
+    function signInFailure(errorCode) {
+        const invalidFeedback = document.getElementById("invalidFeedback");
+        invalidFeedback.style.opacity = "1.0";
+
+        if (errorCode == "invalid-data") {
+            invalidFeedback.innerText = "Invalid username or password.";
+        } else {
+            invalidFeedback.innerText = "An unknown error occurred.";
+        }
     }
 </script>
 <div class="container">
@@ -75,6 +84,9 @@
                                 Remember me
                             </label>
                         </div>
+                    </div>
+                    <div id="invalidFeedback" class="invalid-feedback" style="opacity: 0;">
+                        Invalid username or password.
                     </div>
                     <button type="submit" class="btn btn-lg btn-block login-btn">Login</button>
                 </form>
